@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  
+  Article;
+  constructor(private newsService:NewsService) {
 
-  constructor() {}
+
+  }
+  ionViewDidEnter(){
+
+    this.newsService.getNews().subscribe((data)=>{
+      console.log(data);
+      this.Article = data['articles'];
+    });
+  }
 
 }
