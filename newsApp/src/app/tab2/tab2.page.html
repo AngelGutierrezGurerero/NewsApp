@@ -1,5 +1,52 @@
-<header title="Categorys"></header>
+<ion-header color="dark" translucent>
+    <ion-toolbar color="dark">
+        <ion-title>Categorias</ion-title>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="viewGeneral()" color="dark"> General </ion-button>
 
-<ion-content>
+                </ion-col>
+                <ion-col>
+                    <ion-button (click)="viewHealth()" color="dark"> Health </ion-button>
+
+                </ion-col>
+                <ion-col>
+                    <ion-button (click)="viewScience()" color="dark"> Science </ion-button>
+
+                </ion-col>
+                <ion-col>
+                    <ion-button (click)="viewSports()" color="dark"> Sports </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="dark" fullscreen>
+
+
+
+    <ion-item color="dark" *ngFor="let item of listNew">
+        <ion-card color="dark">
+            <ion-card-header color="dark">
+                <ion-row color="dark">
+
+
+                    <ion-col color="dark" size="9">
+                        <ion-text>
+                            <p> {{item.author}} </p>
+
+                        </ion-text>
+                    </ion-col>
+
+                </ion-row>
+                <ion-card-title color="dark"> {{item.title}}</ion-card-title>
+                <img [src]="item.urlToImage" alt="img" />
+            </ion-card-header>
+            <ion-card-content (click)="openLink(item.url)">
+                <p>{{item.content}}</p>
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
 
 </ion-content>

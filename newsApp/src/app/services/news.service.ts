@@ -13,7 +13,19 @@ export class NewsService {
   }
 
   getNews(){
-    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${this.API_KEY}`);
+    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?country=co&category=business&apiKey=${this.API_KEY}`);
+  }
+  getGeneralNews(){
+    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?country=co&sortBy=popularity&apiKey=${this.API_KEY}`);
+  }
+  getSportsNews(){
+    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?country=co&category=sports&apiKey=${this.API_KEY}`);
+  }
+  getHealthNews(){
+    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?country=co&category=health&apiKey=${this.API_KEY}`);
+  }
+  getScienceNews(){
+    return this.httpClient.get(`https://newsapi.org/v2/top-headlines?country=co&category=science&apiKey=${this.API_KEY}`);
   }
   
    

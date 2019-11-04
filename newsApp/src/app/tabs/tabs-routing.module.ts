@@ -24,6 +24,27 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
+          {
+            path:'general',
+            loadChildren:() =>
+            import( '../tab2/general/general.module').then(m => m.GeneralPageModule)
+          },
+          {
+            path:'sports',
+            loadChildren:() =>
+            import( '../tab2/sports/sports.module').then(m => m.SportsPageModule)
+          },
+          {
+            path:'health',
+            loadChildren:() =>
+            import( '../tab2/health/health.module').then(m => m.HealthPageModule)
+          }
+          ,
+          {
+            path:'science',
+            loadChildren:() =>
+            import( '../tab2/science/science.module').then(m => m.SciencePageModule)
           }
         ]
       },
