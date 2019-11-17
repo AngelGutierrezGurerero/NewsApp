@@ -1,3 +1,34 @@
-<header title="My News"></header>
+<ion-header color="dark" translucent>
+    <ion-toolbar color="dark">
+        <ion-title>Favoritas</ion-title>
+        
+    </ion-toolbar>
+</ion-header>
+<ion-content color="dark" fullscreen>
 
-<ion-content></ion-content>
+
+
+    <ion-item color="dark" *ngFor="let item of listNew">
+        <ion-card color="dark">
+            <ion-card-header color="dark">
+                <ion-row color="dark">
+
+
+                    <ion-col color="dark" size="9">
+                        <ion-text>
+                            <p> {{item.author}} </p>
+
+                        </ion-text>
+                    </ion-col>
+
+                </ion-row>
+                <ion-card-title color="dark"> {{item.title}}</ion-card-title>
+                <img [src]="item.urlToImage" alt="img author" />
+            </ion-card-header>
+            <ion-card-content (click)="openLink(item.url)">
+                <p>{{item.content}}</p>
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
+
+</ion-content>

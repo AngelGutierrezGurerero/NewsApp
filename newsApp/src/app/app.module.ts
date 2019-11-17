@@ -11,12 +11,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ComponentsModule } from './components/components.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, HttpClientModule,IonicModule.forRoot(), AppRoutingModule,ComponentsModule],
+  imports: [BrowserModule, HttpClientModule,IonicModule.forRoot(),IonicStorageModule.forRoot(), AppRoutingModule,ComponentsModule],
   providers: [
     InAppBrowser,
     StatusBar,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NewsService } from '../services/news.service';
-import { RootObject, Article } from '../models/list-news';
+import { Article } from '../models/list-news';
 import { ActionSheetController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
@@ -15,7 +15,7 @@ export class Tab1Page {
   listNew: Array<Article>= new Array();
   
   allNews: any[] =[];
-  constructor(private newsService:NewsService,public actionSheetController: ActionSheetController,private iab: InAppBrowser) {}
+  constructor(private newsService:NewsService,public actionSheetController: ActionSheetController) {}
   options : InAppBrowserOptions = {
     location : 'yes',//Or 'no' 
     hidden : 'no', //Or  'yes'
@@ -34,7 +34,7 @@ export class Tab1Page {
     fullscreen : 'yes',//Windows only    
 };
   
-  async presentActionSheet() {
+  async presentActionSheet(newFavorite) {
     
     const actionSheet = await this.actionSheetController.create({
       header: 'Noticia',
@@ -48,7 +48,8 @@ export class Tab1Page {
         text: 'Favorito',
         icon: 'star',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log('Favorite clicked',newFavorite);
+          this.addToFavorites(newFavorite)
         }
       }, {
         text: 'Cancelar',
@@ -92,6 +93,9 @@ export class Tab1Page {
  
     
     
+  }
+  addToFavorites(article:Article){
+    this.newsService.saveStorage(article)
   }
   
 

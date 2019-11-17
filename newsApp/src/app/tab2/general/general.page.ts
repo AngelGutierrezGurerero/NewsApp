@@ -41,20 +41,24 @@ export class GeneralPage implements OnInit {
         data['articles'][clave]['urlToImage'],
         data['articles'][clave]['publishedAt'],
         data['articles'][clave]['content']));
-        console.log((this.listNew.length))
+        // console.log((this.listNew.length))
         
       }
       
-      for(var i = 0; i < this.listNew.length; i++){ 
-      console.log(this.listNew[i]); // output: Apple Orange Banana
-    }
+    //   for(var i = 0; i < this.listNew.length; i++){ 
+    //   console.log(this.listNew[i]); // output: Apple Orange Banana
+    // }
     return this.listNew ;
     });
+
  
     
     
   }
-
+  addToFavorites(article:Article){
+    console.log(article)
+    this.newsService.saveStorage(article)
+  }
   ngOnInit() {
   }
 
